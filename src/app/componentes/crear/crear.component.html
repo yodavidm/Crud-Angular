@@ -1,0 +1,20 @@
+<div class="container mt-4" style="background-color: white; padding: 20px;width: 30%;border-radius: 20px;">
+    <form [formGroup]="personajeForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input formControlName="nombre" type="text" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Raza</label>
+            <input formControlName="raza" type="text" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Poder</label>
+            <input formControlName="poder" type="text" class="form-control" pattern="^[0-9]+$" required>
+            <small class="text-danger" *ngIf="personajeForm.get('poder').hasError('pattern')">
+                Solo se permiten números.
+            </small>
+        </div>
+        <button type="submit" [disabled]="!personajeForm.valid" class="btn btn-primary" (click)="guardar()">Guardar</button>
+    </form>
+</div>

@@ -1,0 +1,17 @@
+<div class="container mt-4" style="background-color: white; padding: 20px;width: 30%;border-radius: 20px;">
+    <form [formGroup]="editarForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input formControlName="nombre" type="text" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Raza</label>
+            <input formControlName="raza" type="text" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Poder</label>
+            <input formControlName="poder" type="text" class="form-control" pattern="^[0-9]+$" required>
+        </div>
+        <button type="submit" [disabled]="!editarForm.valid" class="btn btn-primary" (click)="editar()">Guardar</button>
+    </form>
+</div>
